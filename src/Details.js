@@ -32,7 +32,7 @@ export const socialMediaUrl = {
 
 export const experienc = [
     {
-        title: "AI Software Engineer Intern",
+        title: "Software Engineer Intern (Agentic AI)",
         company: "Greensand AI",
         logo: greensandLogo,
         location: "Remote, US",
@@ -40,7 +40,7 @@ export const experienc = [
         badge: "Internship",
     },
     {
-        title: "AI Infrastructure Engineer Intern",
+        title: "Software Engineer Intern (AI Infrastructure)",
         company: "Huawei",
         logo: huaweiLogo,
         location: "Shenzhen, China",

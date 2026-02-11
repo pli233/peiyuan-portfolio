@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+// Obsidian Gold theme
 export default {
   content: [
     "./index.html",
@@ -8,6 +9,20 @@ export default {
   theme: {
     extend: {
       colors: {
+        scandi: {
+          bg: '#FAF8F5',
+          card: '#FFFFFF',
+          surface: '#F5F3EF',
+          muted: '#F0EDE8',
+          border: '#E8E4DF',
+          'border-subtle': '#F0EDE8',
+          charcoal: '#1A1A2E',
+          sage: '#C9883C',
+          'sage-tint': 'rgba(201, 136, 60, 0.08)',
+          'text-body': '#5A5A5A',
+          'text-secondary': '#8A8A8A',
+          'text-muted': '#ADADAD',
+        },
         primary: {
           50: '#eff6ff',
           100: '#dbeafe',
@@ -20,84 +35,39 @@ export default {
           800: '#1e40af',
           900: '#1e3a8a',
         },
-        accent: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
-        },
-        gold: {
-          50: '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde68a',
-          300: '#fcd34d',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706',
-          700: '#b45309',
-          800: '#92400e',
-          900: '#78350f',
-        },
+      },
+      fontFamily: {
+        serif: ['Fraunces', 'Georgia', 'serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       animation: {
-        'gradient': 'gradient 8s linear infinite',
+        'fade-in': 'fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'slide-up': 'slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'slide-down': 'slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards',
         'float': 'float 6s ease-in-out infinite',
-        'glow': 'glow 2s ease-in-out infinite alternate',
-        'fade-in': 'fadeIn 0.5s ease-in',
-        'slide-up': 'slideUp 0.5s ease-out',
-        'slide-down': 'slideDown 0.5s ease-out',
-        'wave': 'wave 2.5s infinite',
+        'pulse-soft': 'pulseSoft 2s ease-in-out infinite',
       },
       keyframes: {
-        gradient: {
-          '0%, 100%': {
-            'background-size': '200% 200%',
-            'background-position': 'left center'
-          },
-          '50%': {
-            'background-size': '200% 200%',
-            'background-position': 'right center'
-          },
-        },
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
-        },
-        glow: {
-          '0%': { 'box-shadow': '0 0 5px #2563eb, 0 0 10px #2563eb' },
-          '100%': { 'box-shadow': '0 0 10px #2563eb, 0 0 20px #2563eb, 0 0 30px #2563eb' },
-        },
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
         slideUp: {
-          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '0%': { transform: 'translateY(24px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
         slideDown: {
-          '0%': { transform: 'translateY(-20px)', opacity: '0' },
+          '0%': { transform: 'translateY(-10px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
-        wave: {
-          '0%': { transform: 'rotate(0deg)' },
-          '10%': { transform: 'rotate(14deg)' },
-          '20%': { transform: 'rotate(-8deg)' },
-          '30%': { transform: 'rotate(14deg)' },
-          '40%': { transform: 'rotate(-4deg)' },
-          '50%': { transform: 'rotate(10deg)' },
-          '60%': { transform: 'rotate(0deg)' },
-          '100%': { transform: 'rotate(0deg)' },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
         },
-      },
-      backdropBlur: {
-        xs: '2px',
+        pulseSoft: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.5' },
+        },
       },
     },
   },

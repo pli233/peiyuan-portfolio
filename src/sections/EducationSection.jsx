@@ -1,34 +1,63 @@
-import SchoolCard from "../components/SchoolCard";
 import { educations } from "../Details";
+import { RevealOnScroll } from "../hooks/useScrollReveal";
 
 export default function EducationSection() {
     return (
-        <section id="education" className="py-20">
+        <section id="education" className="py-16">
             <div className="section-container">
-                <div className="mb-12">
-                    <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-                        <span className="gradient-text">Education</span>
-                    </h2>
-                    <p className="text-lg text-gray-600 dark:text-gray-400">
-                        My academic background and achievements
-                    </p>
-                </div>
+                <RevealOnScroll>
+                    <div className="section-header">
+                        <h2>Education</h2>
+                        <p>Academic background and qualifications</p>
+                    </div>
+                </RevealOnScroll>
 
-                <div className="space-y-6">
-                    {educations.map((edu, idx) => (
-                        <div key={`${edu.school}-${edu.period}-${idx}`}>
-                            <SchoolCard
-                                program={edu.program}
-                                degree={edu.degree}
-                                school={edu.school}
-                                period={edu.period}
-                                location={edu.location}
-                                badge={edu.badge}
-                                logo={edu.logo}
-                                highlights={edu.highlights}
-                                gpa={edu.gpa}
-                            />
-                        </div>
+                <div className="flex flex-col gap-5">
+                    {educations.map((edu, i) => (
+                        <RevealOnScroll key={edu.school} delay={i * 100}>
+                            <div className="scandi-card p-7 flex flex-col sm:flex-row items-start gap-6">
+                                {/* Logo */}
+                                <div className="flex-shrink-0">
+                                    {edu.logo ? (
+                                        <div className="w-[72px] h-[72px] rounded-2xl bg-white border border-scandi-border p-3 flex items-center justify-center">
+                                            <img src={edu.logo} alt={edu.school} className="w-full h-full object-contain" />
+                                        </div>
+                                    ) : (
+                                        <div className="w-[72px] h-[72px] rounded-2xl bg-scandi-sage flex items-center justify-center">
+                                            <span className="text-white font-serif text-[28px]">{edu.school[0]}</span>
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* Content */}
+                                <div className="flex-1 min-w-0">
+                                    <h3 className="text-base font-semibold text-scandi-charcoal leading-snug">
+                                        {edu.school}
+                                    </h3>
+                                    <p className="text-sm text-scandi-text-body mt-1.5">
+                                        {edu.program}
+                                    </p>
+                                    <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-3">
+                                        <span className="flex items-center gap-1.5 text-scandi-text-secondary text-xs">
+                                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                            </svg>
+                                            {edu.period}
+                                        </span>
+                                        <span className="flex items-center gap-1.5 text-scandi-text-secondary text-xs">
+                                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            </svg>
+                                            {edu.location}
+                                        </span>
+                                        <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-scandi-sage/10 text-scandi-sage border border-scandi-sage/20">
+                                            {edu.badge.includes("Master") ? "Masters" : "Bachelors"}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </RevealOnScroll>
                     ))}
                 </div>
             </div>
